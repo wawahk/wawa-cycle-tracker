@@ -1,0 +1,6 @@
+{
+  "appId": "com.wawa.cyclebuddy",
+  "appName": "บันทึกของฉัน",
+  "webDir": "www",
+  "bundledWebRuntime": false
+}

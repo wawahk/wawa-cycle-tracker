@@ -1,0 +1,30 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 420 420" fill="none">
+ <defs>
+  <linearGradient id="fur" x1="120" y1="80" x2="300" y2="340" gradientUnits="userSpaceOnUse"><stop stop-color="#FFF5E9"/><stop offset=".52" stop-color="#F3D7BF"/><stop offset="1" stop-color="#E9BEA2"/></linearGradient>
+  <linearGradient id="pink" x1="104" y1="245" x2="300" y2="390" gradientUnits="userSpaceOnUse"><stop stop-color="#F58FA8"/><stop offset="1" stop-color="#DB4F79"/></linearGradient>
+  <linearGradient id="bow" x1="210" y1="75" x2="330" y2="150" gradientUnits="userSpaceOnUse"><stop stop-color="#FFB5C7"/><stop offset="1" stop-color="#EA6690"/></linearGradient>
+  <filter id="shadow" x="35" y="30" width="350" height="380" color-interpolation-filters="sRGB" filterUnits="userSpaceOnUse"><feGaussianBlur stdDeviation="8"/></filter>
+ </defs>
+ <ellipse cx="210" cy="374" rx="145" ry="23" fill="#C86F8230" filter="url(#shadow)"/>
+ <!-- ears and paws -->
+ <circle cx="123" cy="125" r="55" fill="url(#fur)"/><circle cx="123" cy="125" r="31" fill="#E9B8AA"/>
+ <circle cx="297" cy="125" r="55" fill="url(#fur)"/><circle cx="297" cy="125" r="31" fill="#E9B8AA"/>
+ <ellipse cx="211" cy="204" rx="124" ry="130" fill="url(#fur)"/>
+ <ellipse cx="99" cy="294" rx="49" ry="64" transform="rotate(-23 99 294)" fill="url(#fur)"/>
+ <ellipse cx="322" cy="294" rx="49" ry="64" transform="rotate(23 322 294)" fill="url(#fur)"/>
+ <ellipse cx="150" cy="349" rx="63" ry="43" fill="url(#fur)"/><ellipse cx="270" cy="349" rx="63" ry="43" fill="url(#fur)"/>
+ <ellipse cx="169" cy="185" rx="11" ry="14" fill="#573843"/><ellipse cx="253" cy="185" rx="11" ry="14" fill="#573843"/>
+ <ellipse cx="146" cy="215" rx="24" ry="14" fill="#F4A0A4" opacity=".65"/><ellipse cx="276" cy="215" rx="24" ry="14" fill="#F4A0A4" opacity=".65"/>
+ <ellipse cx="211" cy="219" rx="33" ry="24" fill="#FFF8F0"/><path d="M203 210c0-7 16-7 16 0 0 6-8 10-8 10s-8-4-8-10Z" fill="#9C5362"/><path d="M211 220c-3 8-12 11-18 7m18-7c3 8 12 11 18 7" stroke="#9C5362" stroke-width="4" stroke-linecap="round"/>
+ <!-- pink bow -->
+ <path d="M230 99c-29-41-75-38-78-10-2 24 25 39 66 31l12-21Zm13 2c37-35 78-24 72 4-5 23-35 32-70 16l-2-20Z" fill="url(#bow)" stroke="#D85A7D" stroke-width="4"/>
+ <circle cx="233" cy="104" r="16" fill="#EF7F9D" stroke="#D85A7D" stroke-width="4"/><circle cx="233" cy="104" r="5" fill="#FFE6A8"/>
+ <!-- little diary -->
+ <path d="M131 264c0-11 9-20 20-20h121c11 0 20 9 20 20v91H151c-11 0-20-9-20-20v-71Z" fill="url(#pink)" stroke="#D54D73" stroke-width="5"/>
+ <path d="M151 256v97m12-86h103m-103 17h91m-91 17h98" stroke="#FFDDE5" stroke-width="4" stroke-linecap="round" opacity=".8"/>
+ <path d="M222 291c-12-15-33 2-20 16l21 20 21-20c14-14-8-31-22-16Z" fill="#FFE5EB"/>
+ <circle cx="299" cy="324" r="8" fill="#FFE7A9"/>
+ <path d="M365 186c-5 13-20 21-34 18 12 19 38 18 50 1 10-14 5-34-10-42-5-3-10-4-16-3 10 6 14 16 10 26Z" fill="#FFD983" opacity=".92"/>
+ <path d="m333 139 4 11m-20 2 9 6m37-35 7-8" stroke="#F6C65D" stroke-width="6" stroke-linecap="round"/>
+ <path d="M63 200c-3-14-22-13-23 1-1 11 16 22 24 27 8-7 21-20 16-30-5-11-20-8-17 2Z" fill="#F18BA5"/>
+</svg>

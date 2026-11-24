@@ -1,0 +1,65 @@
+name: Build Cycle Buddy APK
+
+on:
+  push:
+    branches: [main]
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+concurrency:
+  group: cycle-buddy-apk
+  cancel-in-progress: true
+
+jobs:
+  android:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Check out source
+        uses: actions/checkout@v4
+
+      - name: Set up Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: 22
+
+      - name: Set up Java
+        uses: actions/setup-java@v4
+        with:
+          distribution: temurin
+          java-version: '21'
+
+      - name: Set up Android SDK
+        uses: android-actions/setup-android@v3
+        with:
+          packages: platform-tools platforms;android-36 build-tools;36.0.0
+
+      - name: Install JavaScript dependencies
+        run: npm install
+
+      - name: Create Android project and sync app
+        run: |
+          npx cap add android
+          npx cap sync android
+
+      - name: Build debug APK
+        run: cd android && ./gradlew --no-daemon assembleDebug
+
+      - name: Upload APK artifact
+        uses: actions/upload-artifact@v4
+        with:
+          name: wawa-cycle-tracker-debug-apk
+          path: android/app/build/outputs/apk/debug/app-debug.apk
+          if-no-files-found: error
+          retention-days: 30
+
+      - name: Publish latest APK release
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          if gh release view cycle-buddy-latest --repo "$GITHUB_REPOSITORY" >/dev/null 2>&1; then
+            gh release upload cycle-buddy-latest android/app/build/outputs/apk/debug/app-debug.apk --repo "$GITHUB_REPOSITORY" --clobber
+          else
+            gh release create cycle-buddy-latest android/app/build/outputs/apk/debug/app-debug.apk --repo "$GITHUB_REPOSITORY" --title "Wawa Cycle Tracker — latest APK" --notes "Debug APK for testing the current cycle tracker build."
+          fi
