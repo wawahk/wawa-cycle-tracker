@@ -41,6 +41,13 @@ jobs:
           path: ~/.android/debug.keystore
           key: wawa-cycle-debug-keystore-v1
 
+      - name: Create debug keystore on cache miss
+        run: |
+          mkdir -p ~/.android
+          if [ ! -f ~/.android/debug.keystore ]; then
+            keytool -genkeypair -v -storetype JKS -keystore ~/.android/debug.keystore -storepass android -alias androiddebugkey -keypass android -keyalg RSA -keysize 2048 -validity 10000 -dname "CN=Android Debug,O=Android,C=US"
+          fi
+
       - name: Install JavaScript dependencies
         run: npm install
 
