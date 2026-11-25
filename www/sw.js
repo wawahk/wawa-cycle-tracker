@@ -1,4 +1,4 @@
-const CACHE='cycle-buddy-v17';
+const CACHE='cycle-buddy-v18';
 const ICONS=['symptom-belly','symptom-head','symptom-fatigue','symptom-acne','symptom-sleep','mood-great','mood-good','mood-normal','mood-stress','mood-sad'].map(name=>`./assets/icons/${name}.svg`);
 const MASTERS=['today','calendar','notes','stats'].map(name=>`./assets/masters/${name}.svg`);
 const NAVS=['today','calendar','notes','stats'].map(name=>`./assets/masters/${name}-nav.jpg`);
