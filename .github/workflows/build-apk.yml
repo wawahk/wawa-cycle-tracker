@@ -54,6 +54,7 @@ jobs:
       - name: Create Android project and sync app
         run: |
           npx cap add android
+          npx @capacitor/assets generate --android --iconBackgroundColor '#ffe7ed'
           npx cap sync android
 
       - name: Apply stable signing key and increasing app version
