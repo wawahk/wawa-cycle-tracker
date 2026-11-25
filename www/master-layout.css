@@ -84,3 +84,5 @@ body{margin:0;background:#ffe9ef;color:#613b47;font-family:'Noto Sans Thai',syst
 .master-nav .nav-item:nth-child(3),.other-nav .nav-item:nth-child(3){left:50%!important}
 .master-nav .nav-item:nth-child(4),.other-nav .nav-item:nth-child(4){left:75%!important}
 .master-nav .nav-item span,.other-nav .nav-item span{visibility:hidden!important}
+
+.master-nav{transform:none!important;width:100%!important}
