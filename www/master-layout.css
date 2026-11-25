@@ -113,8 +113,16 @@ body{margin:0;background:#ffe9ef;color:#613b47;font-family:'Noto Sans Thai',syst
 .settings input[type="time"]{min-height:44px;border:1px solid #f0d3da;border-radius:11px;padding:9px;background:#fff;color:#65414a;font:inherit}
 
 /* Keep one crisp master tab bar fixed to the viewport; mask the copy baked into page art. */
-.app-shell{padding:0 0 calc(112px + env(safe-area-inset-bottom,0px))!important}
+.app-shell{height:100dvh!important;min-height:0!important;padding:0!important;overflow:hidden!important;overscroll-behavior:none!important}
 .master-art{clip-path:inset(0 0 11.02% 0)!important}
 .master-prediction{white-space:pre-line!important;line-height:1.05!important}
 .bottom-nav{position:fixed!important;left:50%!important;right:auto!important;bottom:env(safe-area-inset-bottom,0px)!important;transform:translateX(-50%)!important;width:min(100vw,430px)!important;max-width:430px!important;height:auto!important;aspect-ratio:814/213!important;padding:0!important;display:block!important;background:transparent!important;border:0!important;border-radius:0!important;box-shadow:none!important;z-index:50!important;pointer-events:none!important}
 .bottom-nav-art{position:absolute!important;inset:0!important;width:100%!important;height:100%!important;object-fit:fill!important;image-rendering:auto!important;pointer-events:none!important;z-index:0!important}
+
+/* Keep each master within one phone viewport so the fixed tab bar needs no scroll. */
+html,body{height:100%;overflow:hidden!important;overscroll-behavior:none!important}
+.master-date{width:32%!important;left:16.5%!important;white-space:nowrap!important;font-size:clamp(10px,2.7vw,13px)!important}
+.calendar-screen .calendar-day.estimate,.master-calendar .calendar-day.estimate{background:#fff0c2!important;color:#79551e!important;font-weight:800!important}
+.calendar-screen .calendar-day.actual{background:#f6afc0!important;color:#852844!important}
+.calendar-screen .calendar-day.estimate.selected,.master-calendar .calendar-day.estimate.selected{background:#fff0c2!important;box-shadow:inset 0 0 0 2px #e64c7c!important}
+.stats-screen .master-settings{left:78%!important;top:8.3%!important}
