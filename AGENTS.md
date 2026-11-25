@@ -4,7 +4,7 @@ This repository is the user's menstrual cycle tracker. Keep it separate from eve
 
 ## Masters and first launch
 - Treat the approved Pink Bear screen masters in `www/assets/masters/` as the source of truth for all four screens and their layout. Preserve the 814:1933 phone ratio; do not stretch or substitute an older master.
-- Each master already draws its own bottom tab bar and selected tab. Keep a sharp crop of that same master tab bar fixed at the phone viewport edge, with transparent, accessible tap targets over it. Never use the blurred footer as the visible tab bar or replace the master art with generic symbols.
+- Each master already draws its own bottom tab bar and selected tab. Keep a sharp crop of that same master tab bar fixed at the phone viewport edge, with transparent, accessible tap targets over it. Keep the nav as a direct child of the app shell so screen clipping cannot hide it. Never use the blurred footer as the visible tab bar or replace the master art with generic symbols.
 - The symptom and mood illustrations are already drawn into the Today master. Overlay transparent hit areas and selection marks; do not crop the full page as an icon sprite or put square backgrounds behind the icons. Keep the note master blank under the single live placeholder so text never doubles.
 - A fresh install has no saved cycle data. Never seed example dates, symptoms, moods, notes, calendar markers, or statistics. Remove sample records embedded in master artwork; show empty-state text until the user saves real data.
 - Preserve the user's existing local records when updating the app.
