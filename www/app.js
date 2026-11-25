@@ -3,14 +3,14 @@ const dayKey = (d) => `${d.getFullYear()}-${String(d.getMonth()+1).padStart(2,'0
 const fromKey = (s) => { const [y,m,d]=s.split('-').map(Number); return new Date(y,m-1,d,12); };
 const thaiDate = (d, options={day:'numeric',month:'short',year:'numeric'}) => new Intl.DateTimeFormat('th-TH',options).format(d);
 const today = new Date();
-const SYMPTOMS=[['ปวดท้อง','assets/icons/symptom-belly.svg'],['ปวดหัว','assets/icons/symptom-head.svg'],['อ่อนเพลีย','assets/icons/symptom-fatigue.svg'],['สิว','assets/icons/symptom-acne.svg'],['นอนหลับ','assets/icons/symptom-sleep.svg']];
-const MOODS=[['ดีมาก','assets/icons/mood-great.svg'],['ดี','assets/icons/mood-good.svg'],['ปกติ','assets/icons/mood-normal.svg'],['เครียด','assets/icons/mood-stress.svg'],['เศร้า','assets/icons/mood-sad.svg']];
+const SYMPTOMS=[['ปวดท้อง','icon-belly'],['ปวดหัว','icon-head'],['อ่อนเพลีย','icon-fatigue'],['สิว','icon-acne'],['นอนหลับ','icon-sleep']];
+const MOODS=[['ดีมาก','icon-great'],['ดี','icon-good'],['ปกติ','icon-normal'],['เครียด','icon-stress'],['เศร้า','icon-sad']];
 let data=loadData(), selectedDate=dayKey(today), shownMonth=new Date(today.getFullYear(),today.getMonth(),1);
 function loadData(){try{return JSON.parse(localStorage.getItem('cycle-buddy-data'))||{logs:{},settings:{cycleLength:28,periodLength:5,reminderDays:1,hideDetails:false}}}catch{return {logs:{},settings:{cycleLength:28,periodLength:5,reminderDays:1,hideDetails:false}}}}
 function persist(){localStorage.setItem('cycle-buddy-data',JSON.stringify(data));}
 function dayLog(key=selectedDate){return data.logs[key]||{period:false,flow:'',symptoms:[],moods:[],note:'',startDate:'',endDate:''}}
 function dateText(key){return thaiDate(fromKey(key),{weekday:'long',day:'numeric',month:'long',year:'numeric'})}
-function renderChoices(){for(const [target,items,field] of [['#symptomChoices',SYMPTOMS,'symptoms'],['#moodChoices',MOODS,'moods']]){$(target).innerHTML=items.map(([label,icon])=>`<button type="button" class="choice ${dayLog()[field]?.includes(label)?'selected':''}" data-group="${field}" data-value="${label}"><img class="emoji" src="${icon}" alt=""><span class="choice-label">${label}</span></button>`).join('')}}
+function renderChoices(){for(const [target,items,field] of [['#symptomChoices',SYMPTOMS,'symptoms'],['#moodChoices',MOODS,'moods']]){$(target).innerHTML=items.map(([label,icon])=>`<button type="button" class="choice ${dayLog()[field]?.includes(label)?'selected':''}" data-group="${field}" data-value="${label}"><span class="emoji ${icon}" aria-hidden="true"></span><span class="choice-label">${label}</span></button>`).join('')}}
 function cycleStarts(){return Object.entries(data.logs).filter(([,v])=>v.startDate).map(([k,v])=>v.startDate).filter((v,i,a)=>a.indexOf(v)===i).sort()}
 function cycleStats(){const starts=cycleStarts(), diffs=starts.slice(1).map((s,i)=>Math.round((fromKey(s)-fromKey(starts[i]))/86400000));const avg=diffs.length?Math.round(diffs.reduce((a,b)=>a+b,0)/diffs.length):Number(data.settings.cycleLength)||28;
  const durations=starts.map(s=>{const log=Object.values(data.logs).find(v=>v.startDate===s&&v.endDate);return log?Math.round((fromKey(log.endDate)-fromKey(s))/86400000)+1:null}).filter(Boolean);
