@@ -91,3 +91,17 @@ body{margin:0;background:#ffe9ef;color:#613b47;font-family:'Noto Sans Thai',syst
 #symptomChoices .choice .emoji,#moodChoices .choice .emoji{background-image:url('assets/masters/today.svg')!important;background-repeat:no-repeat!important;background-size:720% auto!important;font-size:0!important}
 #symptomChoices .icon-belly{background-position:8.7% 33.3%!important}#symptomChoices .icon-head{background-position:28.7% 34.8%!important}#symptomChoices .icon-fatigue{background-position:48.5% 34.9%!important}#symptomChoices .icon-acne{background-position:67.2% 35.2%!important}#symptomChoices .icon-sleep{background-position:89.6% 34.8%!important}
 #moodChoices .icon-great{background-position:8.7% 50.4%!important}#moodChoices .icon-good{background-position:28.3% 50.4%!important}#moodChoices .icon-normal{background-position:48.6% 50.2%!important}#moodChoices .icon-stress{background-position:68.6% 50.4%!important}#moodChoices .icon-sad{background-position:88.9% 50.1%!important}
+
+/* Place live statistics into the matching empty areas of the new stats master. */
+.stats-screen .stats-grid{left:4%!important;top:28.3%!important;width:92%!important;height:12.8%!important;gap:2%!important}
+.stats-screen .stat{position:relative!important;display:block!important;padding:0!important;border:0!important;background:transparent!important;box-shadow:none!important}
+.stats-screen .stat span{display:none!important}
+.stats-screen .stat strong{position:absolute!important;top:58%!important;left:0!important;width:100%!important;margin:0!important;text-align:center;color:#992d53;font-size:clamp(19px,5.5vw,27px)!important;line-height:1.1}
+.stats-screen .stat small{position:absolute!important;top:79%!important;left:0!important;width:100%!important;text-align:center;color:#996d7a;font-size:clamp(9px,2.2vw,11px)!important}
+.stats-screen .cycle-chart{position:absolute;left:5%;top:43.2%;width:90%;height:20.7%;display:flex;align-items:center;justify-content:center;color:#987b84;text-align:center;font-size:clamp(10px,2.8vw,13px);z-index:2}
+.stats-screen .cycle-chart svg{display:block;width:100%;height:100%;overflow:visible}
+.stats-screen .section-card{left:5%!important;top:66.5%!important;width:90%!important;height:20.2%!important;padding:0!important;border:0!important;background:transparent!important;box-shadow:none!important;overflow:auto}
+.stats-screen .section-card h3{display:none!important}
+.stats-screen .cycle-history{height:100%;margin:0!important;display:grid;grid-template-rows:repeat(5,minmax(0,1fr));align-content:stretch;gap:0!important}
+.stats-screen .cycle-row{display:flex;align-items:center;height:auto!important;padding:0 7%!important;border:0!important;border-radius:18px;color:#772b47;font-size:clamp(9px,2.7vw,13px)!important}
+.stats-screen .cycle-history .empty{align-self:center;margin:3% 6%!important;padding:8px!important;border:0!important;border-radius:14px;background:rgba(255,250,246,.84)!important;color:#967b83;font-size:clamp(9px,2.6vw,12px)!important;text-align:center}
