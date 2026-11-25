@@ -56,7 +56,9 @@ body{margin:0;background:#ffe9ef;color:#613b47;font-family:'Noto Sans Thai',syst
 .calendar-screen .legend{height:9%;padding:1% 0 0;gap:9px;font-size:clamp(8px,2.5vw,11px)}
 .calendar-screen .selected-day{position:absolute;left:3%;top:71%;width:94%;height:18%;padding:4%;margin:0;border-radius:25px;background:#fffaf6;border:1px solid #f1d5db;overflow:auto}
 .calendar-screen .selected-day strong{font-size:clamp(15px,4vw,19px)}
-.notes-screen #historyList{position:absolute;left:3%;top:25%;width:94%;height:64%;overflow:auto;align-content:start;padding:1%;display:grid;gap:10px}
+.notes-screen #historyList{position:absolute;left:3%;top:24%;width:94%;height:58%;overflow:auto;align-content:start;padding:1%;display:grid;gap:10px}
+.notes-add-hit{position:absolute;left:20%;top:83%;width:60%;height:7.5%;border:0;border-radius:32px;background:transparent;z-index:5;-webkit-tap-highlight-color:transparent}
+.notes-add-hit:focus-visible{outline:3px solid #d73f73;outline-offset:-4px}
 .notes-screen .history-item{border:1px solid #f2d2dc;border-radius:22px;padding:12px 13px;background:#fffaf6;box-shadow:0 4px 14px #a72d4c12}
 .notes-screen .history-item strong{font-size:clamp(13px,3.4vw,16px)}.notes-screen .history-item small{font-size:clamp(10px,2.8vw,13px);line-height:1.4}
 .notes-screen .history-actions{display:flex;gap:5px;flex:none}
@@ -77,13 +79,13 @@ body{margin:0;background:#ffe9ef;color:#613b47;font-family:'Noto Sans Thai',syst
 #periodDialog,#settingsDialog{z-index:30}
 @media(max-width:380px){.master-symptoms .choice .emoji,.master-moods .choice .emoji{width:73%;height:64%}.calendar-screen .calendar-card{height:44%}.calendar-screen .calendar-grid:not(.weekdays){height:60%}}
 
-/* One crisp, real navigation bar sits above the blurred footer artwork on every screen. */
-.bottom-nav{position:absolute;left:0;right:0;bottom:0;width:100%;height:9.2%;padding:5px 3% 3px;display:grid;grid-template-columns:repeat(4,minmax(0,1fr));align-items:stretch;gap:4px;background:rgba(255,250,246,.98);border:1px solid #f0cfd8;border-bottom:0;border-radius:25px 25px 0 0;box-shadow:0 -5px 16px rgba(117,42,67,.12);z-index:12}
-.bottom-nav .nav-item{min-width:0;min-height:62px;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:2px;border:0;border-radius:17px;background:transparent;color:#8c475e;font:600 12px/1.15 'Noto Sans Thai',system-ui,sans-serif;white-space:nowrap;cursor:pointer;-webkit-tap-highlight-color:transparent}
-.bottom-nav .nav-item span{display:block;color:#b13f64;font:400 27px/1 Arial,sans-serif}
-.bottom-nav .nav-item.active{background:#ffe3eb;color:#8f2043;font-weight:800}
-.bottom-nav .nav-item.active span{color:#c23e68}
-.bottom-nav .nav-item:focus-visible{outline:2px solid #d73f73;outline-offset:-2px}
+/* Masters already draw the complete bottom tabs and their active state. These hit areas only receive taps. */
+.bottom-nav{position:absolute!important;left:0!important;right:0!important;bottom:0!important;transform:none!important;width:100%!important;height:9.2%!important;padding:0!important;display:block!important;background:transparent!important;border:0!important;border-radius:0!important;box-shadow:none!important;z-index:12!important;pointer-events:none!important}
+.bottom-nav .nav-item{position:absolute!important;top:0!important;left:0!important;width:25%!important;height:100%!important;min-width:0!important;min-height:0!important;display:block!important;padding:0!important;margin:0!important;border:0!important;border-radius:0!important;background:transparent!important;color:transparent!important;font-size:0!important;box-shadow:none!important;cursor:pointer!important;pointer-events:auto!important;-webkit-tap-highlight-color:transparent!important}
+.bottom-nav .nav-item:nth-child(2){left:25%!important}.bottom-nav .nav-item:nth-child(3){left:50%!important}.bottom-nav .nav-item:nth-child(4){left:75%!important}
+.bottom-nav .nav-item span{display:none!important}
+.bottom-nav .nav-item.active{background:transparent!important}
+.bottom-nav .nav-item:focus-visible{outline:2px solid #d73f73!important;outline-offset:-3px!important}
 
 /* Override legacy CSS that disabled image sprites: keep each 3D master bear icon visible. */
 #symptomChoices .choice .emoji,#moodChoices .choice .emoji{background-image:url('assets/masters/today.svg')!important;background-repeat:no-repeat!important;background-size:720% auto!important;font-size:0!important}
