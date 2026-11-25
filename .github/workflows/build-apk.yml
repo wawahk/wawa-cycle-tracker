@@ -51,6 +51,9 @@ jobs:
       - name: Install JavaScript dependencies
         run: npm install
 
+      - name: Bundle local notifications bridge
+        run: npx esbuild www/local-notifications-entry.js --bundle --format=iife --target=es2020 --outfile=www/local-notifications.bundle.js
+
       - name: Create Android project and sync app
         run: |
           npx cap add android
@@ -126,3 +129,4 @@ jobs:
           else
             gh release create cycle-buddy-latest android/app/build/outputs/apk/debug/app-debug.apk --repo "$GITHUB_REPOSITORY" --title "Wawa Cycle Tracker — latest APK" --notes "Debug APK for testing the current cycle tracker build."
           fi
+

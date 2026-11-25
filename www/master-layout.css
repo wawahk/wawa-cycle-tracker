@@ -107,8 +107,8 @@ body{margin:0;background:#ffe9ef;color:#613b47;font-family:'Noto Sans Thai',syst
 .stats-screen .cycle-row{display:flex;align-items:center;height:auto!important;padding:0 7%!important;border:0!important;border-radius:18px;color:#772b47;font-size:clamp(9px,2.7vw,13px)!important}
 .stats-screen .cycle-history .empty{align-self:center;margin:3% 6%!important;padding:8px!important;border:0!important;border-radius:14px;background:rgba(255,250,246,.84)!important;color:#967b83;font-size:clamp(9px,2.6vw,12px)!important;text-align:center}
 
-
-/* The selected tab is part of each approved master; this shared nav only provides tap targets. */
+/* The approved master artwork already includes the selected tab for each screen. */
 .app-shell{padding:0!important}
 .bottom-nav{position:absolute!important;left:0!important;right:0!important;bottom:0!important;transform:none!important;width:100%!important;max-width:none!important;height:auto!important;aspect-ratio:814/213!important;padding:0!important;display:block!important;background:transparent!important;border:0!important;border-radius:0!important;box-shadow:none!important;z-index:50!important;pointer-events:none!important}
 .bottom-nav-art{display:none!important}
+.settings input[type="time"]{min-height:44px;border:1px solid #f0d3da;border-radius:11px;padding:9px;background:#fff;color:#65414a;font:inherit}
