@@ -110,5 +110,11 @@ body{margin:0;background:#ffe9ef;color:#613b47;font-family:'Noto Sans Thai',syst
 /* The approved master artwork already includes the selected tab for each screen. */
 .app-shell{padding:0!important}
 .bottom-nav{position:absolute!important;left:0!important;right:0!important;bottom:0!important;transform:none!important;width:100%!important;max-width:none!important;height:auto!important;aspect-ratio:814/213!important;padding:0!important;display:block!important;background:transparent!important;border:0!important;border-radius:0!important;box-shadow:none!important;z-index:50!important;pointer-events:none!important}
-.bottom-nav-art{display:none!important}
 .settings input[type="time"]{min-height:44px;border:1px solid #f0d3da;border-radius:11px;padding:9px;background:#fff;color:#65414a;font:inherit}
+
+/* Keep one crisp master tab bar fixed to the viewport; mask the copy baked into page art. */
+.app-shell{padding:0 0 calc(112px + env(safe-area-inset-bottom,0px))!important}
+.master-art{clip-path:inset(0 0 11.02% 0)!important}
+.master-prediction{white-space:pre-line!important;line-height:1.05!important}
+.bottom-nav{position:fixed!important;left:50%!important;right:auto!important;bottom:env(safe-area-inset-bottom,0px)!important;transform:translateX(-50%)!important;width:min(100vw,430px)!important;max-width:430px!important;height:auto!important;aspect-ratio:814/213!important;padding:0!important;display:block!important;background:transparent!important;border:0!important;border-radius:0!important;box-shadow:none!important;z-index:50!important;pointer-events:none!important}
+.bottom-nav-art{position:absolute!important;inset:0!important;width:100%!important;height:100%!important;object-fit:fill!important;image-rendering:auto!important;pointer-events:none!important;z-index:0!important}
