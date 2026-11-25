@@ -56,6 +56,55 @@ jobs:
           npx cap add android
           npx cap sync android
 
+      - name: Apply stable signing key and increasing app version
+        env:
+          GITHUB_RUN_NUMBER: ${{ github.run_number }}
+        run: |
+          set -euo pipefail
+          test -s "$HOME/.android/debug.keystore"
+          cp "$HOME/.android/debug.keystore" android/app/debug.keystore
+          python3 - <<'PY'
+          import os
+          import re
+          from pathlib import Path
+
+          path = Path("android/app/build.gradle")
+          text = path.read_text()
+          run_number = os.environ["GITHUB_RUN_NUMBER"]
+
+          text, version_count = re.subn(
+              r"(?m)^(\s*)versionCode\s+\d+\s*$",
+              lambda match: f"{match.group(1)}versionCode {run_number}",
+              text,
+              count=1,
+          )
+          if version_count != 1:
+              raise SystemExit("Could not set Android versionCode")
+
+          signing = """    signingConfigs {
+                  debug {
+                      storeFile file("debug.keystore")
+                      storePassword "android"
+                      keyAlias "androiddebugkey"
+                      keyPassword "android"
+                  }
+              }
+          """
+          if "signingConfigs {" not in text:
+              text = text.replace("android {", "android {\n" + signing, 1)
+
+          debug_build_type = """    buildTypes {
+                  debug {
+                      signingConfig signingConfigs.debug
+                  }
+          """
+          if "signingConfig signingConfigs.debug" not in text:
+              text = text.replace("    buildTypes {", debug_build_type, 1)
+
+          path.write_text(text)
+          print(f"Configured versionCode={run_number} and persistent debug keystore")
+          PY
+
       - name: Build debug APK
         run: cd android && ./gradlew --no-daemon assembleDebug
 
