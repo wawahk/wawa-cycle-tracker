@@ -135,7 +135,7 @@ html,body{height:100%;overflow:hidden!important;overscroll-behavior:none!importa
 .bottom-nav .nav-item{background:transparent!important;backdrop-filter:none!important;-webkit-backdrop-filter:none!important}
 .master-cycle{left:6%!important;top:14.8%!important;width:42%!important;height:11.2%!important;padding:1%!important;border-radius:0!important;background:transparent!important;justify-content:center!important;z-index:3!important}
 .master-cycle small,.master-cycle span{display:none!important}
-.master-cycle strong{display:block!important;width:100%!important;color:#81213f!important;font-size:clamp(14px,3.7vw,19px)!important;font-weight:900!important;line-height:1.15!important;text-align:center!important}
+.master-cycle strong{display:block!important;width:100%!important;color:#81213f!important;font-size:clamp(18px,5vw,24px)!important;font-weight:900!important;line-height:1.12!important;text-align:center!important}
 .master-prediction{display:none!important}
 .master-flow{position:absolute!important;left:4.1%!important;top:56%!important;width:91.8%!important;height:2.5%!important;display:grid!important;grid-template-columns:repeat(4,minmax(0,1fr))!important;gap:1.5%!important;z-index:4!important}
 .flow-choice{min-width:0!important;min-height:0!important;display:flex!important;flex-direction:column!important;align-items:center!important;justify-content:center!important;gap:1px!important;padding:0 2px!important;border:1px solid #f1cbd5!important;border-radius:9px!important;background:#fff8f5!important;color:#7a304a!important;font:700 clamp(7.5px,2.1vw,9px)/1 'Noto Sans Thai',system-ui,sans-serif!important;white-space:nowrap!important;box-shadow:0 2px 4px #9b4a5c12!important}
