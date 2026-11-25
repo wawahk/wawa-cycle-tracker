@@ -77,12 +77,15 @@ body{margin:0;background:#ffe9ef;color:#613b47;font-family:'Noto Sans Thai',syst
 #periodDialog,#settingsDialog{z-index:30}
 @media(max-width:380px){.master-symptoms .choice .emoji,.master-moods .choice .emoji{width:73%;height:64%}.calendar-screen .calendar-card{height:44%}.calendar-screen .calendar-grid:not(.weekdays){height:60%}}
 
-/* The artwork already contains the four illustrated navigation tabs; keep live hit areas transparent. */
-.master-nav,.other-nav{background:transparent!important;border:0!important;border-radius:0!important;padding:0!important;overflow:visible!important;box-shadow:none!important}
-.master-nav .nav-item,.other-nav .nav-item{position:absolute!important;top:0!important;left:0!important;width:25%!important;height:100%!important;padding:0!important;border:0!important;border-radius:0!important;background:transparent!important;color:transparent!important;font-size:0!important;box-shadow:none!important}
-.master-nav .nav-item:nth-child(2),.other-nav .nav-item:nth-child(2){left:25%!important}
-.master-nav .nav-item:nth-child(3),.other-nav .nav-item:nth-child(3){left:50%!important}
-.master-nav .nav-item:nth-child(4),.other-nav .nav-item:nth-child(4){left:75%!important}
-.master-nav .nav-item span,.other-nav .nav-item span{visibility:hidden!important}
+/* One crisp, real navigation bar sits above the blurred footer artwork on every screen. */
+.bottom-nav{position:absolute;left:0;right:0;bottom:0;width:100%;height:9.2%;padding:5px 3% 3px;display:grid;grid-template-columns:repeat(4,minmax(0,1fr));align-items:stretch;gap:4px;background:rgba(255,250,246,.98);border:1px solid #f0cfd8;border-bottom:0;border-radius:25px 25px 0 0;box-shadow:0 -5px 16px rgba(117,42,67,.12);z-index:12}
+.bottom-nav .nav-item{min-width:0;min-height:62px;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:2px;border:0;border-radius:17px;background:transparent;color:#8c475e;font:600 12px/1.15 'Noto Sans Thai',system-ui,sans-serif;white-space:nowrap;cursor:pointer;-webkit-tap-highlight-color:transparent}
+.bottom-nav .nav-item span{display:block;color:#b13f64;font:400 27px/1 Arial,sans-serif}
+.bottom-nav .nav-item.active{background:#ffe3eb;color:#8f2043;font-weight:800}
+.bottom-nav .nav-item.active span{color:#c23e68}
+.bottom-nav .nav-item:focus-visible{outline:2px solid #d73f73;outline-offset:-2px}
 
-.master-nav{transform:none!important;width:100%!important}
+/* Override legacy CSS that disabled image sprites: keep each 3D master bear icon visible. */
+#symptomChoices .choice .emoji,#moodChoices .choice .emoji{background-image:url('assets/masters/today.svg')!important;background-repeat:no-repeat!important;background-size:720% auto!important;font-size:0!important}
+#symptomChoices .icon-belly{background-position:8.7% 33.3%!important}#symptomChoices .icon-head{background-position:28.7% 34.8%!important}#symptomChoices .icon-fatigue{background-position:48.5% 34.9%!important}#symptomChoices .icon-acne{background-position:67.2% 35.2%!important}#symptomChoices .icon-sleep{background-position:89.6% 34.8%!important}
+#moodChoices .icon-great{background-position:8.7% 50.4%!important}#moodChoices .icon-good{background-position:28.3% 50.4%!important}#moodChoices .icon-normal{background-position:48.6% 50.2%!important}#moodChoices .icon-stress{background-position:68.6% 50.4%!important}#moodChoices .icon-sad{background-position:88.9% 50.1%!important}
